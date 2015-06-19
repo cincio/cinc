@@ -4,6 +4,7 @@ namespace CINC\Project;
 
 use CINC\Project;
 use Silex\ServiceProviderInterface;
+use Silex\Application;
 
 /**
  * Silex Service Provider for CINC Project.
@@ -18,8 +19,11 @@ class ProjectServiceProvider implements ServiceProviderInterface
   {
     $this->app = $app;
 
-    $app['cinc.project'] = $app->protect(function ($name) uses ($app) {
-        return new Project($name);
+    $app['cinc.project'] = $app->protect(function ($name) use ($app) {
+        $project = new Project($name);
+        $project->importers = $app['cinc.project.importers'] ? $app['cinc.project.importers'] : array();
+        $project->exporters = $app['cinc.project.exporters'] ? $app['cinc.project.exporters'] : array();
+        return $project;
     });
 
   }
