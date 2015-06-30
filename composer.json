@@ -3,7 +3,6 @@
     "description": "CINC is a Drupal configuration manager.",
     "type": "library",
     "license": "GPL",
-    "version": "0.1",
     "authors": [
         {
             "name": "Scott Reynen",
