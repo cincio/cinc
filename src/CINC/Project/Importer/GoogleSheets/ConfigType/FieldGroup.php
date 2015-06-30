@@ -72,6 +72,7 @@ class FieldGroup {
       foreach ($importer->lists['field_group'] as $fieldGroup) {
         $children = array();
         $entityType = 'node';
+        $bundle = '';
         $mode = 'form';
         $weight = 0;
         if (isset($importer->lists['field_instance'])) {

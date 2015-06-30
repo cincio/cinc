@@ -5,6 +5,7 @@ namespace CINC\Project;
 use Google\Spreadsheet\DefaultServiceRequest;
 use Google\Spreadsheet\ServiceRequestFactory;
 use Symfony\Component\Yaml\Dumper;
+use CINC\Project\Importer\GoogleSheets\ConfigType\BeanType;
 use CINC\Project\Importer\GoogleSheets\ConfigType\ContentType;
 use CINC\Project\Importer\GoogleSheets\ConfigType\Field;
 use CINC\Project\Importer\GoogleSheets\ConfigType\FieldInstance;
@@ -37,6 +38,7 @@ class ImporterGoogleSheets {
 
     $this->sheets = $this->spreadsheetToArray($spreadsheet);
 
+    $this->configTypes[] = new BeanType();
     $this->configTypes[] = new ContentType();
     $this->configTypes[] = new Field();
     $this->configTypes[] = new FieldInstance();
